@@ -16,7 +16,7 @@ sources:
           - name: pdt_id
             description: foreign to product
           - name: revenue
-            description: amount paid by the customer to purchase the product, revenue = quntity * selling_price
+            description: amount paid by the customer to purchase the product, revenue = quantity * selling_price
           - name: quantity
             description: the quantity of products purchased by this order
         tests:
