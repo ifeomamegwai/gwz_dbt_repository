@@ -19,19 +19,31 @@ sources:
             description: amount paid by the customer to purchase the product, revenue = quntity * selling_price
           - name: quantity
             description: the quantity of products purchased by this order
+        tests:
+              - unique:
+                  column_name: "(orders_id || '_' || pdt_id)"
+        freshness:    
+          warn_after: {count: 90, period: day}
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)"
       - name: product
         identifier: raw_gz_product
-        description: producs of Greenweez
+        description: products of Greenweez
         columns:
-          - name: product_id
+          - name: products_id
             description: the primary key of the table
+            tests:
+              - unique
+              - not_null
           - name: purchase_price
-            description: the purchase price of the product      
+            description: the purchase price of the product
       - name: ship
         identifier: raw_gz_ship
         columns:
           - name: orders_id
             description: the primary key of the table
+            tests:
+              - unique
+              - not_null
           - name: shipping__fee
             description: the price the customer pays for shipping
           - name: log_cost
