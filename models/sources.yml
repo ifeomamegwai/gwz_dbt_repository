@@ -26,7 +26,7 @@ sources:
           - name: product_id
             description: the primary key of the table
           - name: purchase_price
-            description: the purchase price of the product
+            description: the purchase price of the product      
       - name: ship
         identifier: raw_gz_ship
         columns:
